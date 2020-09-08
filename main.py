@@ -1,14 +1,20 @@
 from mip import Model, xsum, maximize, BINARY
 import math
+
+# Columns ids in the csv file
 FIRST_NAME = 0
 LAST_NAME = 1
 VOICE = 2
 FRIENDS = 5
+
+# Parameters for optimizing
 GROUP_COUNT = 5
 VOICE_COUNT = 4
 MAX_GROUP_SIZE = 13
 MIN_VOICE_SIZE = 2
 MAX_VOICE_SIZE = 4
+households = []
+# e.g. households = [["Adam","Eve"],["Alice","Bob"]]
 
 
 class Person:
@@ -71,7 +77,6 @@ for row in data[1:]:
                 print(f'{friend}, friend of {row[FIRST_NAME]} was not found')
 
 # get ids of people in households
-households = []
 person_id_of = {}
 for p, person in enumerate(people):
     for household in households:
